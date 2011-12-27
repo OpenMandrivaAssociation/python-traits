@@ -1,6 +1,6 @@
 %define module	traits
 %define name	python-%{module}
-%define version	4.0.0
+%define version	4.1.0
 %define release %mkrel 1
 
 Summary:	Enthought Tool Suite - traits project
@@ -10,7 +10,7 @@ Release:	%{release}
 Source0:	http://www.enthought.com/repo/ets/%{module}-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
-Url:		http://code.enthought.com/projects/traits/
+Url:		https://github.com/enthought/traits/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Obsoletes:	python-enthought-traits-ui
 Obsoletes:	python-enthought-traits
