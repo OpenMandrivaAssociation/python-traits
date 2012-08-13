@@ -1,9 +1,14 @@
 %define module	traits
 %define name	python-%{module}
-%define version	4.1.0
-%define release %mkrel 1
+%define version	4.2.0
+%define	rel		1
+%if %mdkversion < 201100
+%define release %mkrel %{rel}
+%else
+%define	release	%{rel}
+%endif
 
-Summary:	Enthought Tool Suite - traits project
+Summary:	Enthought Tool Suite - explicitly typed attributes for Python
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
@@ -52,17 +57,18 @@ are automatically inherited by any subclass derived from the class.
 %setup -q -n %{module}-%{version}
 
 %build
-
 %__python setup.py build
+export PYTHONPATH=`ls -1d build/lib.* | head -1`
 %__python setup.py build_docs --formats html
 
 %install
 %__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
+PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %clean
 %__rm -rf %{buildroot}
 
-%files -f FILE_LIST
+%files 
 %defattr(-,root,root)
 %doc *.txt *.rst examples/ build/docs/html/
+%py_platsitedir/%{module}*
