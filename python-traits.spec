@@ -1,29 +1,20 @@
 %define module	traits
-%define name	python-%{module}
-%define version	4.2.0
-%define	rel		1
-%if %mdkversion < 201100
-%define release %mkrel %{rel}
-%else
-%define	release	%{rel}
-%endif
 
 Summary:	Enthought Tool Suite - explicitly typed attributes for Python
-Name:		%{name}
+Name:		python-%{module}
 Version:	4.3.0
-Release:	1
+Release:	2
 Source0:	https://www.enthought.com/repo/ets/traits-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
 Url:		https://github.com/enthought/traits/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Obsoletes:	python-enthought-traits-ui
 Obsoletes:	python-enthought-traits
 Requires:	python-numpy >= 1.1.0
 BuildRequires:	python-setupdocs >= 1.0.5
 BuildRequires:	python-setuptools >= 0.6c8
 BuildRequires:	python-sphinx
-%py_requires -d
+BuildRequires:  python-devel
 
 %description
 The Traits project allows Python programmers to use a special kind of type
@@ -62,14 +53,9 @@ export PYTHONPATH=`ls -1d build/lib.* | head -1`
 %__python setup.py build_docs --formats html
 
 %install
-%__rm -rf %{buildroot}
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
-%clean
-%__rm -rf %{buildroot}
-
 %files 
-%defattr(-,root,root)
 %doc *.txt *.rst examples/ build/docs/html/
 %py_platsitedir/%{module}*
 
