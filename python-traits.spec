@@ -57,7 +57,7 @@ export PYTHONPATH=`ls -1d build/lib.* | head -1`
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %files 
-%doc *.txt *.rst examples/ build/docs/html/
+%doc * *.rst  
 %{py_platsitedir}/%{module}*
 
 
