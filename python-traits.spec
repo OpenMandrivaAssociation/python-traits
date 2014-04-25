@@ -1,10 +1,11 @@
 %define module	traits
 
 Summary:	Enthought Tool Suite - explicitly typed attributes for Python
+
 Name:		python-%{module}
-Version:	4.3.0
-Release:	2
-Source0:	https://www.enthought.com/repo/ets/traits-%{version}.tar.gz
+Version:	4.4.0
+Release:	1
+Source0:	http://www.enthought.com/repo/ets/traits-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
 Url:		https://github.com/enthought/traits/
@@ -57,21 +58,7 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %files 
 %doc *.txt *.rst examples/ build/docs/html/
-%py_platsitedir/%{module}*
-
-
-%changelog
-* Mon Aug 13 2012 Lev Givon <lev@mandriva.org> 4.2.0-1
-+ Revision: 814679
-- Update to 4.2.0.
-
-* Tue Dec 27 2011 Lev Givon <lev@mandriva.org> 4.1.0-1
-+ Revision: 745658
-- Update to 4.1.0.
-
-* Thu Jul 07 2011 Lev Givon <lev@mandriva.org> 4.0.0-1
-+ Revision: 689158
-- import python-traits
+%{py_platsitedir}/%{module}*
 
 
 
