@@ -6,6 +6,7 @@ Name:		python-%{module}
 Version:	4.4.0
 Release:	1
 Source0:	http://www.enthought.com/repo/ets/traits-%{version}.tar.gz
+Source1:	%{name}.rpmlintrc
 License:	BSD
 Group:		Development/Python
 Url:		https://github.com/enthought/traits/
@@ -57,8 +58,5 @@ export PYTHONPATH=`ls -1d build/lib.* | head -1`
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %files 
-%doc * *.rst  
+%doc *.rst
 %{py_platsitedir}/%{module}*
-
-
-
