@@ -4,7 +4,7 @@ Summary:	Enthought Tool Suite - explicitly typed attributes for Python
 
 Name:		python-%{module}
 Version:	4.4.0
-Release:	1
+Release:	2
 Source0:	http://www.enthought.com/repo/ets/traits-%{version}.tar.gz
 Source1:	%{name}.rpmlintrc
 License:	BSD
