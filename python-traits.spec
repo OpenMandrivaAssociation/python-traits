@@ -3,7 +3,7 @@
 Summary:	Enthought Tool Suite - explicitly typed attributes for Python
 
 Name:		python-%{module}
-Version:	6.4.3
+Version:	7.0.2
 Release:	1
 Source0:	https://pypi.python.org/packages/source/t/traits/traits-%{version}.tar.gz
 Source1:	%{name}.rpmlintrc
